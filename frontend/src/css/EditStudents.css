@@ -1,0 +1,172 @@
+/* frontend/css/studentprofiles.css */
+
+.student-profile-container {
+    max-width: 700px; /* Increased max-width for more space */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Softer, more prominent shadow */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    color: #333;
+    animation: fadeIn 0.5s ease-out; /* Simple fade-in animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.student-profile-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: 600;
+    position: relative;
+}
+
+.student-profile-container h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #3498db; /* A vibrant blue underline */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.student-profile-form {
+    display: grid;
+    /* Two columns for most fields, adjust as needed */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; /* Space between grid items */
+}
+
+.student-profile-form input[type="text"],
+.student-profile-form input[type="number"],
+.student-profile-form input[type="email"],
+.student-profile-form input[type="tel"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Slightly more rounded inputs */
+    font-size: 1em;
+    color: #555;
+    background-color: #f8f8f8; /* Light background for inputs */
+    transition: all 0.3s ease;
+}
+
+.student-profile-form input[type="text"]:focus,
+.student-profile-form input[type="number"]:focus,
+.student-profile-form input[type="email"]:focus,
+.student-profile-form input[type="tel"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); /* Subtle focus glow */
+    outline: none;
+    background-color: #fff;
+}
+
+.student-profile-form label {
+    font-weight: 600;
+    color: #555;
+    margin-top: 10px; /* Space above labels */
+    display: block;
+    grid-column: span 2; /* Labels span both columns for clarity */
+}
+
+.student-profile-form input[type="file"] {
+    grid-column: span 2; /* File input spans both columns */
+    padding: 10px 0;
+}
+
+.student-profile-submit {
+    grid-column: span 2; /* Submit button spans both columns */
+    background-color: #28a745; /* A pleasant green for submit */
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+}
+
+.student-profile-submit:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Specific styling for the current photo preview in EditStudent.jsx */
+.current-photo-preview {
+    grid-column: span 2; /* Spans both columns */
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f0f8ff; /* Light blue background */
+    border: 1px solid #cceeff;
+    border-radius: 10px;
+}
+
+.current-photo-preview label {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #333;
+    display: block; /* Ensure label is on its own line */
+}
+
+.current-photo-preview img {
+    max-width: 150px;
+    max-height: 150px;
+    width: 100%; /* Ensure image scales within its container */
+    height: auto;
+    border: 3px solid #3498db; /* Blue border around photo */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .student-profile-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .student-profile-form {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+
+    .student-profile-form label,
+    .student-profile-form input[type="file"],
+    .student-profile-submit,
+    .current-photo-preview {
+        grid-column: auto; /* Remove span on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .student-profile-container {
+        margin: 15px;
+        padding: 15px;
+    }
+
+    .student-profile-container h2 {
+        font-size: 1.8em;
+    }
+
+    .student-profile-form input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .student-profile-submit {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+}

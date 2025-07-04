@@ -1,0 +1,182 @@
+/* frontend/css/studentprofiles.css */
+
+/* Base styles for the container */
+.student-profile-container {
+    max-width: 700px; /* Slightly wider container for better form layout */
+    margin: 40px auto; /* More vertical margin and center horizontally */
+    padding: 40px; /* Increased padding inside the container */
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); /* Light gradient background */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Stronger, softer shadow */
+    font-family: 'Roboto', sans-serif; /* Using Roboto for a clean, modern look */
+    color: #333; /* Default text color */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+/* Add Roboto font import (you should add this to your index.html or main CSS file) */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'); */
+
+
+/* Heading style */
+.student-profile-container h2 {
+    text-align: center;
+    color: #00796b; /* Teal color for heading */
+    margin-bottom: 30px; /* Space below the heading */
+    font-size: 2.2em; /* Larger heading */
+    font-weight: 700; /* Bolder heading */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+/* Form layout using Grid */
+.student-profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+    gap: 20px; /* Space between grid items */
+}
+
+/* Style for all inputs (text, number, file) and the file input label */
+.student-profile-form input[type="text"],
+.student-profile-form input[type="number"],
+.student-profile-form input[type="file"],
+.student-profile-form label[for="profile_photo"] {
+    width: 100%; /* Make inputs take full width of their grid cell */
+    padding: 12px 15px; /* Increased padding inside inputs */
+    border: 1px solid #b2ebf2; /* Light blue border */
+    border-radius: 8px; /* Rounded input corners */
+    box-sizing: border-box; /* Include padding and border in element's total size */
+    font-size: 1em; /* Standard font size */
+    background-color: #e0f7fa; /* Very light blue background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus effect */
+}
+
+/* Input focus state */
+.student-profile-form input[type="text"]:focus,
+.student-profile-form input[type="number"]:focus,
+.student-profile-form input[type="file"]:focus {
+    outline: none; /* Remove default outline */
+    border-color: #00796b; /* Teal border on focus */
+    box-shadow: 0 0 10px rgba(0, 121, 107, 0.5); /* Teal glow effect */
+    background-color: #ffffff; /* White background on focus */
+}
+
+/* Style for labels */
+.student-profile-form label {
+    grid-column: span 2; /* Make labels span across two columns */
+    display: block; /* Make label a block element */
+    margin-bottom: -10px; /* Pull label up slightly */
+    font-weight: 500; /* Medium font weight */
+    color: #004d40; /* Darker teal for labels */
+    font-size: 0.95em; /* Slightly smaller font for labels */
+}
+
+/* Adjust file input placement after the label */
+.student-profile-form input[type="file"] {
+     grid-column: span 2; /* Make file input span across two columns */
+     margin-top: 5px; /* Add some space below the label */
+     padding-top: 10px; /* Adjust padding for file input */
+     background-color: #e0f7fa; /* Consistent background */
+}
+
+/* Custom styling for the file input button (requires wrapping or advanced CSS) */
+/* For a simple approach, the default browser file input is used */
+
+
+/* Submit button style */
+.student-profile-submit {
+    grid-column: span 2; /* Make the button span across both columns */
+    width: 100%; /* Button takes full width */
+    padding: 14px; /* Increased padding */
+    background: linear-gradient(to right, #00796b, #004d40); /* Teal gradient background */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1.1em; /* Larger font size */
+    font-weight: 500; /* Medium font weight */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    margin-top: 20px; /* Space above the button */
+    letter-spacing: 0.5px; /* Add letter spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Button shadow */
+}
+
+.student-profile-submit:hover {
+    background: linear-gradient(to right, #004d40, #00796b); /* Reverse gradient on hover */
+    transform: translateY(-2px); /* Lift button slightly */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+.student-profile-submit:active {
+    transform: translateY(0); /* Press down effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Smaller shadow on active */
+}
+
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .student-profile-container {
+        padding: 25px; /* Reduce padding on smaller screens */
+        margin: 20px; /* Adjust margin */
+    }
+
+    .student-profile-container h2 {
+        font-size: 1.8em; /* Slightly smaller heading */
+    }
+
+    .student-profile-form {
+        grid-template-columns: 1fr; /* Stack elements in a single column on smaller screens */
+        gap: 15px; /* Reduce gap */
+    }
+
+    .student-profile-form input[type="text"],
+    .student-profile-form input[type="number"],
+    .student-profile-form input[type="file"],
+    .student-profile-form label,
+    .student-profile-submit {
+        grid-column: span 1; /* Reset span for single column layout */
+    }
+
+    .student-profile-form label {
+        margin-bottom: 0; /* Adjust label margin when stacked */
+    }
+
+    .student-profile-form input[type="file"] {
+         margin-top: 0; /* Adjust file input margin */
+         padding-top: 12px; /* Ensure consistent padding */
+    }
+
+    .student-profile-submit {
+        padding: 12px; /* Adjust button padding */
+        font-size: 1em; /* Adjust button font size */
+        margin-top: 15px; /* Adjust button margin */
+    }
+}
+
+@media (max-width: 480px) {
+     .student-profile-container {
+        padding: 15px; /* Further reduce padding */
+        margin: 10px; /* Further reduce margin */
+     }
+
+    .student-profile-container h2 {
+        font-size: 1.5em; /* Smaller heading on very small screens */
+        margin-bottom: 20px;
+    }
+
+    .student-profile-form {
+        gap: 10px; /* Further reduce gap */
+    }
+
+    .student-profile-form input[type="text"],
+    .student-profile-form input[type="number"],
+    .student-profile-form input[type="file"],
+    .student-profile-form label {
+         padding: 10px 12px; /* Adjust input padding */
+         font-size: 0.9em; /* Adjust input font size */
+    }
+
+    .student-profile-submit {
+        padding: 10px; /* Further reduce button padding */
+        font-size: 0.9em; /* Further reduce button font size */
+        margin-top: 10px; /* Adjust button margin */
+    }
+}

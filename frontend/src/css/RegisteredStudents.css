@@ -1,0 +1,117 @@
+/* frontend/css/registeredstudents.css */
+
+.registered-students-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.registered-students-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.student-list {
+    display: grid;
+    gap: 20px;
+    /* Optional: Grid layout for multiple columns if needed */
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+}
+
+.student-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    display: flex; /* Use flexbox for photo and details side-by-side */
+    gap: 20px;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.student-card .profile-photo {
+    flex-shrink: 0; /* Prevent photo from shrinking */
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #eee; /* Placeholder background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+}
+
+.student-card .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area without distorting aspect ratio */
+}
+
+.student-card .profile-photo .placeholder-photo {
+    text-align: center;
+    font-size: 0.8em;
+    color: #666;
+}
+
+
+.student-card .student-details {
+    flex-grow: 1; /* Allow details to take up remaining space */
+}
+
+.student-card .student-details h3 {
+    margin-top: 0;
+    color: #0056b3;
+}
+
+.student-card .student-details p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.student-card .button-group {
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px;
+}
+
+.student-card .button-group .edit-button,
+.student-card .button-group .delete-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: none; /* For the Link component */
+    text-align: center;
+    display: inline-block; /* Make Link behave like a button */
+}
+
+.student-card .button-group .edit-button {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.student-card .button-group .edit-button:hover {
+    background-color: #e0a800;
+}
+
+.student-card .button-group .delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.student-card .button-group .delete-button:hover {
+    background-color: #c82333;
+}
+
+.container.error {
+    color: #dc3545;
+    text-align: center;
+}

@@ -1,0 +1,293 @@
+/* frontend/css/StudentCards.css */
+
+/* Base styles for the body and overall container */
+body {
+    font-family: 'Poppins', sans-serif; /* Using Poppins for a modern feel */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Subtle gradient background */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* Improved readability */
+    color: #333; /* Default text color */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+}
+
+/* Add Poppins font import (you should add this to your index.html or main CSS file) */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap'); */
+
+
+.navigation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Use min-height to allow content to push container */
+    padding: 30px; /* Increased padding */
+    max-width: 1200px; /* Wider container */
+    margin: 0 auto; /* Center container */
+    box-sizing: border-box; /* Include padding in width */
+    width: 100%; /* Ensure container takes full width up to max-width */
+}
+
+/* Title Style */
+.navigation-title {
+    font-size: 48px; /* Larger title */
+    font-weight: 700; /* Bolder title */
+    text-align: center;
+    color: #1a202c; /* Darker title color */
+    margin-bottom: 60px; /* More space below title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* More pronounced text shadow */
+    position: relative;
+    width: 100%; /* Ensure title takes full width for centering */
+}
+
+.navigation-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #4a90e2, #50e3c2); /* Gradient underline */
+    margin: 10px auto 0; /* Center the underline */
+    border-radius: 2px;
+}
+
+
+/* Grid Layout for Cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexible columns */
+    gap: 30px; /* Increased gap */
+    width: 100%;
+}
+
+/* Card Link Style (Wrapper for the card) */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Make the link fill the grid item */
+    height: 100%; /* Ensure link takes full height of card */
+}
+
+/* Individual Card Style */
+.card {
+    background-color: #ffffff;
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within the card */
+    height: 100%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease; /* Added background transition */
+    overflow: hidden; /* Hide overflowing content */
+    position: relative; /* Needed for pseudo-elements */
+    z-index: 1; /* Ensure content is above pseudo-elements */
+}
+
+/* Pseudo-element for subtle background effect on hover */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15); /* Slightly more visible overlay */
+    z-index: -1; /* Behind card content */
+    transition: transform 0.5s ease;
+    transform: scale(0); /* Start hidden */
+    border-radius: 15px;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: translateY(-10px); /* More lift on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Enhanced shadow */
+    background-color: #e1f5fe; /* Lighter blue background on hover */
+}
+
+.card:hover::before {
+    transform: scale(1.05); /* Expand pseudo-element slightly beyond bounds */
+}
+
+
+/* Card Icon Style */
+.card-icon {
+    font-size: 60px; /* Larger icons */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease; /* Icon animation on hover */
+    line-height: 1; /* Prevent extra space below icon */
+}
+
+.card:hover .card-icon {
+    transform: rotate(10deg) scale(1.1); /* Rotate and slightly enlarge icon on hover */
+}
+
+/* Icon Colors (using custom classes with better color palettes) */
+.card-icon.text-blue { color: #4a90e2; /* Soft Blue */ }
+.card-icon.text-green { color: #50e3c2; /* Mint Green */ }
+.card-icon.text-purple { color: #9013fe; /* Vibrant Purple */ }
+.card-icon.text-yellow { color: #f5a623; /* Warm Yellow */ }
+
+
+/* Card Title Style */
+.card-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2c3e50; /* Darker title color */
+    margin-bottom: 10px;
+    text-align: center; /* Ensure title is centered */
+    width: 100%; /* Ensure title takes full width */
+}
+
+/* Card Description Style */
+.card-description {
+    font-size: 15px; /* Slightly smaller description */
+    color: #555; /* Medium grey */
+    margin-bottom: 25px;
+    flex-grow: 1;
+    opacity: 0.9; /* Slightly transparent */
+    text-align: center; /* Ensure description is centered */
+    width: 100%; /* Ensure description takes full width */
+}
+
+/* Card Button Style (applied to the span inside Link) */
+.card-button {
+    margin-top: auto;
+    font-weight: 600; /* Slightly less bold than title */
+    padding: 12px 28px; /* More padding */
+    border-radius: 30px; /* Pill shape button */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block; /* Ensure padding and margin work */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 0.8px; /* Add letter spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Button shadow */
+    text-align: center; /* Ensure button text is centered */
+    min-width: 150px; /* Give buttons a minimum width */
+}
+
+/* Button Hover Styles (adjust colors per card with gradients) */
+.card-link:nth-child(1) .card-button { background: linear-gradient(to right, #4a90e2, #007bff); color: white; } /* Blue Gradient */
+.card-link:nth-child(1) .card-button:hover { background: linear-gradient(to right, #007bff, #4a90e2); transform: translateY(-3px); box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2); } /* More pronounced hover effect */
+
+.card-link:nth-child(2) .card-button { background: linear-gradient(to right, #50e3c2, #28a745); color: white; } /* Green Gradient */
+.card-link:nth-child(2) .card-button:hover { background: linear-gradient(to right, #28a745, #50e3c2); transform: translateY(-3px); box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2); }
+
+.card-link:nth-child(3) .card-button { background: linear-gradient(to right, #9013fe, #6f42c1); color: white; } /* Purple Gradient */
+.card-link:nth-child(3) .card-button:hover { background: linear-gradient(to right, #6f42c1, #9013fe); transform: translateY(-3px); box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2); }
+
+.card-link:nth-child(4) .card-button { background: linear-gradient(to right, #f5a623, #fd7e14); color: white; } /* Yellow/Orange Gradient */
+.card-link:nth-child(4) .card-button:hover { background: linear-gradient(to right, #fd7e14, #f5a623); transform: translateY(-3px); box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2); }
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) { /* Adjust for smaller desktops and tablets */
+    .navigation-title {
+        font-size: 40px;
+        margin-bottom: 50px;
+    }
+
+    .cards-grid {
+         gap: 25px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .card-icon {
+        font-size: 50px;
+        margin-bottom: 15px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-description {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .card-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) { /* Adjust for tablets and larger phones */
+     .navigation-container {
+        padding: 20px;
+     }
+
+    .navigation-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .cards-grid {
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Allow slightly smaller cards */
+    }
+
+     .card {
+        padding: 20px;
+     }
+
+    .card-icon {
+        font-size: 45px;
+        margin-bottom: 15px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .card-description {
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    .card-button {
+        padding: 10px 18px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) { /* Adjust for small phones */
+     .navigation-container {
+        padding: 15px;
+     }
+    .navigation-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .cards-grid {
+        gap: 15px;
+        grid-template-columns: 1fr; /* Stack cards vertically */
+    }
+
+     .card {
+        padding: 15px;
+     }
+
+    .card-icon {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .card-description {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .card-button {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+}
